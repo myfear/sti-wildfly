@@ -36,10 +36,10 @@ ADD ./contrib/wfcfg/standalone.xml /wildfly/standalone/configuration/standalone.
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
 
-RUN chown -R 1001:0 /wildfly && \
+RUN chown -R 1000:0 /wildfly && \
     chmod -R ug+rw /wildfly && \
     chmod -R g+rw /opt/s2i/destination
 
-USER 1001
+USER 1000
 
 CMD $STI_SCRIPTS_PATH/usage
